@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Viabilidade Logística</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 30px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .search-box { display: flex; gap: 10px; margin-bottom: 25px; }
+        input { flex: 1; padding: 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 12px 25px; font-size: 16px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #0056b3; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; display: none; }
+        .card { background: #f8f9fa; border: 1px solid #e3e6f0; border-top: 4px solid #007bff; padding: 15px; border-radius: 4px; }
+        .card h3 { margin-top: 0; color: #4e73df; font-size: 14px; text-transform: uppercase; }
+        .card p { margin: 5px 0; font-size: 16px; font-weight: 500; }
+        .list { padding-left: 20px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>📋 Painel de Liberação de Carga (Multi-API)</h2>
+    <p>Insira o CEP de destino para consolidar os relatórios de rotas, clima e calendário:</p>
+    
+    <div class="search-box">
+        <input type="text" id="cepInput" placeholder="Digite o CEP (apenas números)" maxlength="8">
+        <button onclick="processarLogistica()">Analisar Região</button>
+    </div>
+
+    <div id="dashboard" class="grid">
+        <div class="card" style="border-top-color: #1cc88a;">
+            <h3>📍 Dados de Destino</h3>
+            <p id="logradouro">--</p>
+            <p id="bairro">--</p>
+            <p id="cidadeEstado">--</p>
+        </div>
+
+        <div class="card" style="border-top-color: #f6c23e;">
+            <h3>☀️ Condições Climáticas</h3>
+            <p>Temp. Atual: <span id="temp">--</span></p>
+            <p>Vento: <span id="vento">--</span></p>
+        </div>
+
+        <div class="card" style="border-top-color: #e74a3b;">
+            <h3>📅 Calendário de Feriados (2026)</h3>
+            <ul id="listaFeriados" class="list">
+                <li>Não encontrado</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="script1.js"></script>
+</body>
+</html>
